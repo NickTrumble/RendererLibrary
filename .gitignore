@@ -37,6 +37,8 @@ build/
 ### Mac OS ###
 .DS_Store
 
-# Ignore everything under the org.example package structure
+# Ignore everything under the org.example and org.testing package structure
+**/src/main/java/org/testing/
+**/src/test/java/org/testing/
 **/src/main/java/org/example/
 **/src/test/java/org/example/

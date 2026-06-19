@@ -78,13 +78,21 @@ public class Colour {
     }
 
     public int colourToInt(){
-        return (propertyToInt(r) << 24 |
-                propertyToInt(g) << 16 |
-                propertyToInt(b) << 8 |
-                propertyToInt(a));
+        return (propertyToInt(a) << 24 |
+                propertyToInt(r) << 16 |
+                propertyToInt(g) << 8 |
+                propertyToInt(b));
     }
 
     private int propertyToInt(float r){
         return (int) (r * 255f);
+    }
+
+    public static Colour intToColour(int i){
+        int alpha = (i >> 24) & 0xFF;
+        int red = (i >> 16) & 0xFF;
+        int green = (i >> 8) & 0xFF;
+        int blue = i & 0xFF;
+        return new Colour(red / 255f, green / 255f, blue / 255f, alpha / 255f);
     }
 }
